@@ -1,11 +1,52 @@
-<div align="center">
+# Dizin — Görevler (Todo) ve Know-How Bilgi Bankası
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Tamamen tarayıcı taraflı (client-side) çalışan, harici bir veritabanı gerektirmeyen, **IndexedDB** tabanlı modern Türkçe görev yöneticisi ve ilişkili bilgi bankası uygulaması.
 
-  <h1>Built with AI Studio</h2>
+## Öne Çıkan Özellikler
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- **Görevler (Todo):** Hızlı görev ekleme, öncelik (`Düşük`, `Orta`, `Yüksek`), durum (`Yapılacak`, `Devam Ediyor`, `Tamamlandı`), etiketleme, serbest Markdown not alanı ve bağlı Know-How kayıtlarını görevi terk etmeden önizleme.
+- **Know-How (Bilgi Bankası):** Markdown editörü, canlı önizleme / bölünmüş görünüm, `[[` yazıldığında açılan otomatik kayıt bağlama menüsü, "İlişkili Kayıt Ekle" seçicisi, **Geri Bağlantılar (Backlinks)** ve **Bağlı Görevler** takibi.
+- **Görsel Yönetimi:** Dosya seçme, sürükle-bırak ve `Ctrl+V` (panodan yapıştırma) ile çoklu görsel ekleme; kaydetmeden önce maksimum `1600px` boyutuna otomatik optimizasyon; tam ekran **Lightbox** görüntüleyici.
+- **IndexedDB & JSON Yedekleme:** `localStorage` 5 MB sınırına takılmadan tüm görevler, dokümanlar ve görseller tarayıcıdaki IndexedDB'de saklanır; tek bir `.json` dosyası olarak dışa/içe aktarılabilir.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Docker ile Kurulum ve Çalıştırma
 
-</div>
+Uygulama herhangi bir veritabanı sunucusu gerektirmez. Çok aşamalı `Dockerfile` ile derlenip `nginx:alpine` üzerinden sunulur.
+
+### 1. İmajı Derleyin ve Başlatın
+
+Proje kök dizininde aşağıdaki komutu çalıştırın:
+
+```bash
+docker compose up -d --build
+```
+
+### 2. Uygulamaya Erişin
+
+Tarayıcınızdan aşağıdaki adresi açın:
+
+```text
+http://localhost:3000
+```
+
+> Farklı bir port kullanmak isterseniz `docker-compose.yml` içindeki `"3000:80"` satırını örneğin `"8080:80"` olarak güncelleyebilirsiniz.
+
+### 3. Yararlı Docker Komutları
+
+```bash
+# Konteyner durumunu görüntüle
+docker compose ps
+
+# Logları izle
+docker compose logs -f dizin-app
+
+# Uygulamayı durdur
+docker compose down
+```
+
+## Yerel Geliştirme (Docker Olmadan)
+
+```bash
+npm install
+npm run dev
+```

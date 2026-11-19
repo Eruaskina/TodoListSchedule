@@ -1,0 +1,6 @@
+{
+  "name": "Dizin — Görevler ve Bilgi Bankası",
+  "description": "Tarayıcı tabanlı, IndexedDB destekli modern Türkçe görev yöneticisi ve ilişkili Know-How bilgi bankası.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
