@@ -1,9 +1,14 @@
 services:
   dizin-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/eruaskina/todolistschedule:latest
     container_name: dizin-todo-knowhow
+    pull_policy: always
     ports:
       - "3000:80"
     restart: unless-stopped
+    # Not: GitHub Container Registry (GHCR) yerine doğrudan GitHub reposundan
+    # kaynak kodu çekip derlemek isterseniz yukarıdaki `image` ve `pull_policy`
+    # satırlarını kaldırıp aşağıdakini kullanabilirsiniz:
+    # build:
+    #   context: https://github.com/Eruaskina/TodoListSchedule.git#main
+    #   dockerfile: Dockerfile

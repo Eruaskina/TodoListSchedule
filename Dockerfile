@@ -10,6 +10,9 @@ RUN npm run build
 
 FROM nginx:alpine
 
+LABEL org.opencontainers.image.source="https://github.com/Eruaskina/TodoListSchedule"
+LABEL org.opencontainers.image.description="Dizin — Görevler (Todo) ve Know-How Bilgi Bankası"
+
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist /usr/share/nginx/html
 
